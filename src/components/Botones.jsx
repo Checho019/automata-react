@@ -2,24 +2,24 @@
 import React from 'react';
 import axios from 'axios';
 
-export let automata = null
+export var automata = null
+const baseUrl = 'http://127.0.0.1:8000/simulacion';
+
+export const handleNextStep = () => {
+  axios.get(`${baseUrl}/siguiente/`)
+    .then(response => {
+      // Manejar la respuesta aquí
+      automata = response.data
+      console.log(automata)
+    })
+    .catch(error => {
+      // Manejar errores aquí
+      console.error('Error al hacer la petición al endpoint siguiente:', error);
+    });
+};
 
 const Botones = () => {
-  const baseUrl = 'http://127.0.0.1:8000/simulacion'; // Cambia esto por la URL base de tu API
-
-  const handleNextStep = () => {
-    axios.get(`${baseUrl}/siguiente/`)
-      .then(response => {
-        // Manejar la respuesta aquí
-        automata = response.data
-        console.log(automata)
-      })
-      .catch(error => {
-        // Manejar errores aquí
-        console.error('Error al hacer la petición al endpoint siguiente:', error);
-      });
-  };
-
+   // Cambia esto por la URL base de tu API
   const handleRestartSimulation = () => {
     axios.get(`${baseUrl}/reiniciar/`)
       .then(response => {
@@ -74,7 +74,6 @@ const Botones = () => {
 
   return (
     <div>
-      <button onClick={handleNextStep}>Siguiente Paso</button>
       <button onClick={handleRestartSimulation}>Reiniciar</button>
       <button onClick={handleFire}>Poner Fuego</button>
       <button onClick={handleWater}>Poner Agua</button>

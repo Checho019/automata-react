@@ -15,10 +15,10 @@ const CanvasGrid = ({ gridData }) => {
         return 'rgb(112, 168, 19)';
       case 2:
         return 'rgb(255, 0, 0)';
-      case 4:
-        return 'rgb(0, 0, 255)';
+      case 3:
+        return 'rgb(255, 255, 255)';
       default:
-        return 'rgb(255, 255, 255)'; // Color blanco para valores no especificados
+        return 'rgb(0, 0, 255)';; // Color blanco para valores no especificados
     }
   };
 
