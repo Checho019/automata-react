@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CanvasGrid from './components/CanvasGrid';
 import Botones, { handleNextStep } from './components/Botones';
 import { automata } from './components/Botones';
+import FireForm from './components/FireForm';
 
 // Función para actualizar un valor en la matriz
 const updateGridValue = (gridData, setGridData, row, col, value) => {
@@ -46,9 +47,9 @@ const App = () => {
   const [gridData, setGridData] = useState(initialGrid);
   return (
     <div>
-      <Botones />
-      <button onClick={() => updateAll(gridData, setGridData)}>Siguiente</button>
       <button onClick={() => updateGridValue(gridData, setGridData,0,0,1)}>XD</button>
+      <button onClick={() => updateAll(gridData, setGridData)}>Siguiente</button>
+      <FireForm></FireForm>
       <CanvasGrid gridData={gridData} />
     </div>
   );
